@@ -1673,7 +1673,76 @@ a.normal:visited {
 			    padding: 2px 0 0 4px;
 			}
 			
+		
+		
+/*............Media............*/
+		
+		.media #sidebar {
+			display: none;
+		}
+		
+		#wrapper .media #content {
+			width: 836px;
+		}
+		
+		.media #content .items-expanded p {
+			width: 295px;
+		}
+		
+		
+		.media .item-type {
+			display: none;
+		}
+		
+		#wrapper .media #content p a:link,
+		#wrapper .media #content p a:visited {
+			color: #333;
+		}
+		
+		#wrapper .media #content .items-expanded ul.action-list li.media-author {
+			width: 200px;
+			margin-right: 40px;
+			color: #9c9e9c;
+		}
+
+		#wrapper .media #content .items-expanded ul.action-list li.media-author a:link,
+		#wrapper .media #content .items-expanded ul.action-list li.media-author a:visited {
 			
+		}
+		
+		.media .thumb {
+			display: none;
+		}
+		
+		.media ul.action-list {
+			float: left;
+			clear: none;
+			width: 400px;
+			margin-top: 0;
+		}
+		
+		#wrapper .media #content .items-expanded ul li {
+			margin-top: 0;
+		}
+		
+		#wrapper .media #content .items-expanded ul li.item  {
+			height: auto;
+		}
+		
+		#wrapper .media #content .items-expanded ul li div {
+			width: 836px;
+		}
+		
+		#wrapper .media #content .items-expanded ul.action-list li {
+			width: 40px;
+		}
+		
+		#wrapper .media #content .items-expanded ul.action-list li a:link,
+		#wrapper .media #content .items-expanded ul.action-list li a:visited {
+			color: #62775a;
+		}
+		
+	
 										
 /*............Request Page............*/
 		
