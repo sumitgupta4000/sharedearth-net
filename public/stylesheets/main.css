@@ -1685,9 +1685,13 @@ a.normal:visited {
 			width: 836px;
 		}
 		
-		.media #content .items-expanded p {
-			width: 295px;
-		}
+			#wrapper .media #content .items-expanded {
+				margin-top: 16px;
+			}
+		
+				.media #content .items-expanded p {
+					width: 295px;
+				}
 		
 		
 		.media .item-type {
