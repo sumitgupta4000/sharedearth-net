@@ -1695,11 +1695,22 @@ a.normal:visited {
 				}
 				
 					.media #content p span {
+						width: auto;
+						float: right;
+						height: auto;
+						color: #9c9e9c;
+					}
+					
+					.media #content p span.media-author {
 						float: left;
 						height: auto;
 						width: 300px;
 						text-align: left;
 						color: #9c9e9c;
+					}
+					
+					.media #content p span.gift-item {
+						color: #127e0e;
 					}
 				
 					.media #content .items-expanded p .media-name {
