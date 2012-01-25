@@ -1690,8 +1690,17 @@ a.normal:visited {
 			}
 		
 				.media #content .items-expanded p {
-					width: 426px;
+					width: 776px;
+					text-align: right;
 				}
+				
+					.media #content p span {
+						float: left;
+						height: auto;
+						width: 300px;
+						text-align: left;
+						color: #9c9e9c;
+					}
 				
 					.media #content .items-expanded p .media-name {
 						display: block;
@@ -1707,19 +1716,17 @@ a.normal:visited {
 		#wrapper .media #content p a:link,
 		#wrapper .media #content p a:visited {
 			color: #333;
+			display: none;
 		}
 		
-		#wrapper .media #content .items-expanded ul.action-list li.media-author {
-			width: 270px;
-			margin-right: 40px;
-			color: #9c9e9c;
+		#wrapper .media #content p a.positive:link,
+		#wrapper .media #content p a.positive:visited {
+			display: block;
+			width: 370px;
+			float: left;
+			text-align: left;
 		}
-
-		#wrapper .media #content .items-expanded ul.action-list li.media-author a:link,
-		#wrapper .media #content .items-expanded ul.action-list li.media-author a:visited {
-			
-		}
-		
+				
 		.media #content .thumb {
 			display: none;
 		}
@@ -1727,8 +1734,9 @@ a.normal:visited {
 		.media ul.action-list {
 			float: left;
 			clear: none;
-			width: 410px;
-			margin-top: 0;
+			width: 60px;
+			margin: 0;
+			text-align: right;
 		}
 		
 		#wrapper .media #content .items-expanded ul li {
@@ -1744,17 +1752,27 @@ a.normal:visited {
 		}
 		
 		#wrapper .media #content .items-expanded ul.action-list li {
-			width: 40px;
+			width: 60px;
+			text-align: right;
 		}
 		
 		#wrapper .media #content .items-expanded ul.action-list li.item-purpose {
 			font-size: 11px;
 		}
 		
+		#wrapper .media #content .items-expanded ul.action-list li.view-item {
+			display: none;
+		}
+		
 		
 		#wrapper .media #content .items-expanded ul.action-list li a:link,
 		#wrapper .media #content .items-expanded ul.action-list li a:visited {
 			color: #62775a;
+		}
+		
+		#wrapper .media #content .items-expanded ul.action-list li.person-name a:link,
+		#wrapper .media #content .items-expanded ul.action-list li.person-name a:visited {
+			display: none;
 		}
 		
 	
