@@ -110,7 +110,7 @@ class ApplicationController < ActionController::Base
   #Error 501
   def generic_error(exception, message = "OK that didn't work. Try something else.")
     respond_to do |format|
-      #format.html {render_501}
+      format.html {render_501}
       format.json do
         render :json => {:error => message}
       end
@@ -131,9 +131,9 @@ class ApplicationController < ActionController::Base
     render :template => 'static_pages/404', :status => :not_found
   end
 
-  #def render_501
-   # render :template => 'static_pages/501', :status => :not_implemented
-  #end
+  def render_501
+    render :template => 'static_pages/501', :status => :not_implemented
+  end
 
   def facebook_login
     session[:fb_drop_url] = request.request_uri unless request.request_uri.blank?
