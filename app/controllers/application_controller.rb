@@ -11,15 +11,13 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, :with => :missing_page  #Rails 3.0/3.1 can't catch this error still
 
     # Render 501's
-    #rescue_from ActiveRecord::StatementInvalid, :with => :generic_error
-    #rescue_from RuntimeError, :with => :generic_error
-    #rescue_from NoMethodError, :with => :no_method_error
-    rescue => nomethoderror
-	  notify_airbrake(nomethoderror)
-    #rescue_from NameError, :with => :generic_error
-    #rescue_from ActionView::TemplateError, :with => :generic_error
+    rescue_from ActiveRecord::StatementInvalid, :with => :generic_error
+    rescue_from RuntimeError, :with => :generic_error
+    rescue_from NoMethodError, :with => :no_method_error
+    rescue_from NameError, :with => :generic_error
+    rescue_from ActionView::TemplateError, :with => :generic_error
 
-    #rescue_from FbGraph::Unauthorized, :with => :facebook_login
+    rescue_from FbGraph::Unauthorized, :with => :facebook_login
   #end
 
   def missing_route(exception = nil)
