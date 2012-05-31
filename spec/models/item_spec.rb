@@ -258,3 +258,53 @@ describe "generic" do
     Factory.build(:item, :item_type => 'Bike', :name => 'Passion').should_not be_generic
   end
 end
+
+describe "after_create hook for item type" do
+  it "should create item type if doesn't exists" do
+    ItemType.count.should == 0
+    Factory(:item, :item_type => 'Bike', :name => nil)
+    item_type = ItemType.where(:item_type => 'Bike')
+    item_type.count.should == 1
+    item_type.first.item_count.should == 1
+  end
+  
+  it "should update item type if already exists" do
+    Factory(:item_type, :item_type => 'Bike')
+    Factory(:item, :item_type => 'Bike', :name => nil)
+    item_type = ItemType.where(:item_type => 'Bike')
+    item_type.count.should == 1
+    item_type.first.item_count.should == 2
+  end
+describe "item names for books" do 
+  subject { Item.new(:item_type => "book") } 
+	  
+  it "should not allow names over 250 characters for books" do 
+	should_not allow_value(("a" * 251)).for(:name)
+  end 
+
+  it "should allow names at or under 250 characters for books" do 
+    should allow_value(("a" * 250)).for(:name)
+  end 
+end 
+
+describe "item names for all other items" do
+  subject { Item.new(:item_type => "chair")}
+
+  it "should not allow names over 50 characters for items" do 
+    should_not allow_value(("a" * 51)).for(:name)
+  end 
+
+  it "should allow names at or under 50 characters for items" do 
+    should allow_value(("a" * 50)).for(:name)
+  end  
+end
+
+describe "before destroy hook for item type" do
+  it "should reduce item count by 1" do
+    item = Factory(:item, :item_type => 'Bike', :name => nil)
+    item_type = ItemType.where(:item_type => 'Bike')
+    item_type.first.item_count.should == 1
+    item.destroy
+    item_type.first.reload.item_count.should == 0
+  end
+end
