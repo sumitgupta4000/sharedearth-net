@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, :with => :missing_page  #Rails 3.0/3.1 can't catch this error still
 
     # Render 501's
-    #rescue_from ActiveRecord::StatementInvalid, :with => :generic_error
-    #rescue_from RuntimeError, :with => :generic_error
-    #rescue_from NoMethodError, :with => :no_method_error
-    #rescue_from NameError, :with => :generic_error
-    #rescue_from ActionView::TemplateError, :with => :generic_error
+    rescue_from ActiveRecord::StatementInvalid, :with => :generic_error
+    rescue_from RuntimeError, :with => :generic_error
+    rescue_from NoMethodError, :with => :no_method_error
+    rescue_from NameError, :with => :generic_error
+    rescue_from ActionView::TemplateError, :with => :generic_error
 
     rescue_from FbGraph::Unauthorized, :with => :facebook_login
   #end
@@ -109,6 +109,7 @@ class ApplicationController < ActionController::Base
 
   #Error 501
   def generic_error(exception, message = "OK that didn't work. Try something else.")
+	notify_airbrake(exception)
     respond_to do |format|
       format.html {render_501}
       format.json do
